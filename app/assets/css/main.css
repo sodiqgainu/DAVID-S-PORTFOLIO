@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
-
-.dark {
-  --color-bg: var(--color-bg-dark);
-  --color-text: var(--color-text-dark);
+@font-face {
+  font-family: 'han';
+  src: url('./fonts/blackHans/BlackHanSans-Regular.ttf');
 }
 
-body {
-  background-color: var(--color-bg-light);
-  color: var(--color-text-light);
+@font-face {
+  font-family: 'robo-reg';
+  src: url('./fonts/static/Roboto-Regular.ttf');
 }
 
-.dark body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+@theme{
+   --color-light: #EBEAE5;
+   --color-dark : #000;
+   --font-han : 'han';
+   --font-robo-reg : 'robo-reg';
+   --color-primary: '#6A8378';
 }
+
+
+
+
+ 
