@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 @font-face {
   font-family: 'han';
   src: url('./fonts/blackHans/BlackHanSans-Regular.ttf');
@@ -17,6 +19,12 @@
    --font-robo-reg : 'robo-reg';
    --color-primary: '#6A8378';
 }
+
+body{
+  background: black;
+}
+
+
 
 
 

@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="shadow-md py-4 px-5 md:px-[4rem] justify-between items-center flex"
+    class="shadow-md py-4 fixed z-50 bg-white inset-x-0 px-5 md:px-[4rem] justify-between items-center flex"
   >
     <div class="flex items-center space-x-8">
       <img
@@ -125,10 +125,7 @@
     <!-- desktop button -->
 
     <div class="space-x-6 md:flex hidden items-center">
-        <button class=" px-4 bg-none border-1 rounded-full border-primary block font-robo-reg py-1 text-primary relative overflow-hidden" @mouseover="animate" @mouseleave="animateReverse">  
-            <div class="w-full inset-0 absolute scale-y-0 translate-y-[100%] bg-black" ref="animBtn"/>
-            <h2 class=" relative z-index-1 anim-text">Hire</h2>
-        </button>
+        <AnimButton  :text="'Hire me'" :overlayCol="'bg-black'" :textColor="'white'" :prevTextColor="'black'" class="inline-block"/>
         <Magnetic :strength="20">
           <Button class="border px-6 py-2 bg-dark font-robo-reg text-light hidden md:inline-block">
             Contact
@@ -321,35 +318,7 @@ const leave4 = () => {
   );
 };
 
-const animBtn = ref(null)
 
-const tl2 = gsap.timeline()
-
-const animate = () => {
-  tl2.to(animBtn.value,{
-    y:0,
-    scale:1,
-    duration:0.2,
-    ease:'sine.inOut'
-  })
-  tl2.to('.anim-text',{
-    color:'white',
- 
-  },'0')
-}
-
-const animateReverse = () => {
- tl2.to(animBtn.value,{
-  y:'100%',
-  scaleY:0,
-  duration:0.2,
-  ease:'sine.inOut'
- })
-
- tl2.to('.anim-text',{
-  color:'black',
- },'<')
-}
 
 </script>
 
