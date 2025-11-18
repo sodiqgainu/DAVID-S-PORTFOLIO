@@ -4,12 +4,14 @@
 
 @font-face {
   font-family: 'han';
-  src: url('./fonts/blackHans/BlackHanSans-Regular.ttf');
+  src: url('/fonts/blackHans/BlackHanSans-Regular.ttf');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'robo-reg';
-  src: url('./fonts/static/Roboto-Regular.ttf');
+  src: url('/fonts/static/Roboto-Regular.ttf');
+  font-display: swap;
 }
 
 @theme{
