@@ -1,11 +1,11 @@
 <template>
-    <div class="flex flex-col items-center md:items-center gap-8 md:flex-row md:gap-5">
+    <div class="flex flex-col  items-center md:items-center gap-[5rem] md:flex-row md:gap-5">
         <div class="w-[100%] md:w-[50%] max-w-[1200px] mx-auto">
             <img src="/images/image 7.png" class="w-full h-auto object-cover" loading="lazy" alt="">
         </div>
 
 
-        <div class="w-[100%] md:w-[50%]  mx-auto md:order-1 mt-[2rem] md:mt-0 order-[-1]">
+        <div class="w-[100%] md:w-[50%] md:px-9 mx-auto md:order-1 mt-[2rem] md:mt-0 order-[-1]">
             <h3 class="font-robo-reg text-md mb-2">Showcase</h3>
             <h1 class="font-han showcase-text  ">
                 Transforming Concepts Into Digital Masterpieces

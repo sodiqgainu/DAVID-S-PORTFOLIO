@@ -25,6 +25,6 @@ import Magnetic from '~/Effects/Magnetic.vue';
 
 <style scoped>
    .hero-text{
-    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-size: clamp(3rem, 6vw, 5rem);
    }
 </style>

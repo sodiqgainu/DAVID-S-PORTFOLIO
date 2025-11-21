@@ -22,9 +22,14 @@
    --color-primary: '#6A8378';
 }
 
+
+
+
 body{
   background: black;
 }
+
+html{ scroll-behavior: auto !important; }
 
 
 

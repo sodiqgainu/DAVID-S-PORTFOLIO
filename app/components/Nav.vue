@@ -2,7 +2,7 @@
   <nav
     class="shadow-md py-4 fixed z-50 bg-white inset-x-0 px-5 md:px-[4rem] justify-between items-center flex"
   >
-    <div class="flex items-center space-x-8">
+    <div class="flex items-center space-x-8"     @click="scrollTo('home')">
       <img
         src="/images/navLogo.png"
         class="w-[30px] md:w-[35px] hover:scale-[1.2] transition-all duration-200"
@@ -142,14 +142,14 @@ import Magnetic from '~/Effects/Magnetic.vue';
 
 const isActive = ref(false);
 
-const toggleMenu = () => {
+const toggleMenu = () => {https://gsap.com/community/forums/topic/36755-gsap-markers-on-page-refresh-start-in-different-position/
   isActive.value = !isActive.value;
 };
 
 const scrollTo = (sectionId) => {
   const section = document.getElementById(sectionId);
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+    section.scrollIntoView({ behavior: 'auto' });
     isActive.value = false; // Close the menu after clicking
   }
 };

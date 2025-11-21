@@ -1,14 +1,14 @@
 <template>
   <div ref="container" class="relative h-[320px] md:h-[420px] overflow-hidden">
-    <div ref="track" class="will-change-transform">
+    <div ref="track" class="will-change-transform ">
       <div ref="set1" class="img-cont">
         <div class="mb-[1em]" v-for="(image, index) in images" :key="`a-${index}`">
-          <img :src="image.src" alt="" loading="lazy">
+          <img :src="image.src" alt=""  class="">
         </div>
       </div>
       <div class="img-cont">
         <div class="mb-[1em]" v-for="(image, index) in images" :key="`b-${index}`">
-          <img :src="image.src" alt="" loading="lazy">
+          <img :src="image.src" alt="" >
         </div>
       </div>
     </div>
@@ -85,7 +85,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-  .img-cont{ column-count: 1; }
-  @media (min-width: 768px){ .img-cont{ column-count: 2; } }
-  @media (max-width: 767px){ .img-cont > div{ text-align: left; } .img-cont img{ display: block; } }
+  .img-cont{ column-count: 2; }
+  
 </style>
