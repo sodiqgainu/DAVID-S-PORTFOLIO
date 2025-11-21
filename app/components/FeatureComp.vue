@@ -5,7 +5,7 @@
       <h1>{{ title }}</h1>
     </div>
 
-    <div :class="['flex min-h-[100svh] md:min-h-[100vh] items-center gap-8', reverse ? 'md:flex-row-reverse' : 'md:flex-row', 'flex-col']">
+    <div :class="['flex min-h-[100svh] md:min-h-[100vh] md:mt-auto mt-[3rem] items-center gap-8', reverse ? 'md:flex-row-reverse' : 'md:flex-row', 'flex-col']">
       <div class="text-white md:w-[50%] w-full">
         <h2 class="font-robo-reg">{{ section }}</h2>
         <h1 class="feature-text font-han my-3">{{ headline }}</h1>
