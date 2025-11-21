@@ -149,7 +149,7 @@ const toggleMenu = () => {https://gsap.com/community/forums/topic/36755-gsap-mar
 const scrollTo = (sectionId) => {
   const section = document.getElementById(sectionId);
   if (section) {
-    section.scrollIntoView({ behavior: 'auto' });
+    section.scrollIntoView({ behavior: 'smooth' });
     isActive.value = false; // Close the menu after clicking
   }
 };
