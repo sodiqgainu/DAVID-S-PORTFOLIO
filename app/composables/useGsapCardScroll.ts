@@ -30,7 +30,7 @@ export function useGsapCardScroll() {
   function setup(el: HTMLElement, options: CardScrollOptions = {}): gsap.core.Timeline | null {
     const {
       cardSelector = '.feature-card',
-      start = 'top 12%',
+      start = 'top top', // normalized
       markers = false,
       endMode = 'cardsHeight',
       anticipatePin = 1
@@ -45,6 +45,7 @@ export function useGsapCardScroll() {
         autoAlpha: i === 0 ? 1 : 0,
         scale: i === 0 ? 1 : 0.8
       })
+      card.style.pointerEvents = i === 0 ? 'auto' : 'none'
     })
 
     const dynamicEnd = () => {
@@ -54,7 +55,8 @@ export function useGsapCardScroll() {
       return `+=${cards.length * el.offsetHeight}`
     }
 
-    const localTl = gsap.timeline({
+    let localTl: gsap.core.Timeline | null = null
+    localTl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
         pin: el,
@@ -62,8 +64,9 @@ export function useGsapCardScroll() {
         end: dynamicEnd,
         scrub: 1,
         pinSpacing: true,
-        anticipatePin: anticipatePin,
-       
+        anticipatePin,
+        markers,
+        refreshPriority: 1,
         invalidateOnRefresh: true,
         onRefresh: () => {
           cards.forEach((card, i) => {
@@ -81,8 +84,8 @@ export function useGsapCardScroll() {
       const prev = cards[i - 1] as HTMLElement | undefined
       const card = cards[i] as HTMLElement | undefined
       if (!prev || !card) continue
-      localTl.to(prev as HTMLElement, { autoAlpha: 0, scale: 0.8, duration: 0.5, ease: 'power2.inOut' }, i)
-      localTl.to(card as HTMLElement, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'power2.inOut' }, i)
+      localTl.to(prev as HTMLElement, { autoAlpha: 0, scale: 0.8, duration: 0.5, ease: 'power2.inOut', onStart: () => { prev.style.pointerEvents = 'none' } }, i)
+              .to(card as HTMLElement, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'power2.inOut', onComplete: () => { card.style.pointerEvents = 'auto' } }, i)
     }
 
     tl = localTl
@@ -94,7 +97,8 @@ export function useGsapCardScroll() {
     ctx = gsap.context(() => {}, el)
     await waitForImages(el)
     const timeline = setup(el, options)
-    ScrollTrigger.refresh()
+    gsap.delayedCall(0.2, () => ScrollTrigger.refresh())
+    gsap.delayedCall(0.6, () => ScrollTrigger.refresh())
     return timeline
   }
 

@@ -2,27 +2,20 @@
   <nav
     class="shadow-md py-4 fixed z-50 bg-white inset-x-0 px-5 md:px-[4rem] justify-between items-center flex"
   >
-    <div class="flex items-center space-x-8"     @click="scrollTo('home')">
+    <div class="flex items-center space-x-8">
       <img
         src="/images/navLogo.png"
-        class="w-[30px] md:w-[35px] hover:scale-[1.2] transition-all duration-200"
+        class="w-[30px] md:w-[35px] hover:scale-[1.2] transition-all duration-200 cursor-pointer"
         alt=""
+        @click="scrollTo('home')"
       />
 
       <!-- desktop menu -->
 
       <div class="font-robo-reg space-x-10  md:block hidden"> 
+       
         <button
-          @click="scrollTo('work')"
-          @mouseover="hovered1"
-          @mouseleave="leave1"
-          class="relative overflow-hidden"
-        >
-          <span class="block absolute" ref="span1">Work</span>
-          <span class="block translate-y-[100%]" ref="span2">Work</span>
-        </button>
-        <button
-          @click="scrollTo('skills')"
+          @click.stop="scrollTo('skills')"
           class="overflow-hidden relative"
           @mouseleave="leave2"
           @mouseover="hovered2"
@@ -31,16 +24,16 @@
           <span class="block translate-y-[100%]" ref="span4">Skills</span>
         </button>
         <button
-          @click="scrollTo('about')"
+          @click.stop="scrollTo('testimonials')"
           @mouseover="hovered3"
           @mouseleave="leave3"
           class="overflow-hidden relative"
         >
-          <span class="block absolute" ref="span5">About</span>
-          <span class="block translate-y-[100%]" ref="span6">About</span>
+          <span class="block absolute" ref="span5">Testimonials</span>
+          <span class="block translate-y-[100%]" ref="span6">Testimonials</span>
         </button>
         <button
-          @click="scrollTo('projects')"
+          @click.stop="scrollTo('projects')"
           class="overflow-hidden relative"
           @mouseleave="leave4"
           @mouseover="hovered4"
@@ -82,12 +75,7 @@
       "
     >
       <div class="font-robo-reg flex flex-col space-y-6 items-start py-7">
-        <button
-          @click="scrollTo('work')"
-          class="block hover:bg-black shadow-md hover:text-white transition-colors duration-200 py-3 px-3 border-l-4 border-black rounded-xl text-left w-full"
-        >
-          Work
-        </button>
+       
         <button
           @click="scrollTo('skills')"
           class="block w-full text-left hover:bg-black shadow-md px-3 border-l-4 border-black rounded-xl hover:text-white transition-colors duration-200 py-3"
@@ -95,10 +83,10 @@
           Skills
         </button>
         <button
-          @click="scrollTo('about')"
+          @click="scrollTo('testimonials')"
           class="block w-full text-left shadow-md hover:bg-black px-3 hover:text-white transition-colors duration-200 py-3 border-l-4 border-black rounded-xl"
         >
-          About
+          Testimonials
         </button>
         <button
           @click="scrollTo('projects')"
@@ -139,6 +127,7 @@
 <script setup>
 import gsap from 'gsap';
 import Magnetic from '~/Effects/Magnetic.vue';
+import { useNuxtApp } from '#app';
 
 const isActive = ref(false);
 
@@ -146,54 +135,26 @@ const toggleMenu = () => {https://gsap.com/community/forums/topic/36755-gsap-mar
   isActive.value = !isActive.value;
 };
 
+const navOffset = 80;
+const nuxtApp = useNuxtApp();
+
 const scrollTo = (sectionId) => {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-    isActive.value = false; // Close the menu after clicking
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  const target = el.getBoundingClientRect().top + window.scrollY - navOffset;
+  if (nuxtApp.$lenis) {
+    nuxtApp.$lenis.scrollTo(target, { duration: 1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+  } else {
+    window.scrollTo({ top: target, behavior: 'smooth' });
   }
+  isActive.value = false;
 };
 
 const span1 = ref(null);
 const span2 = ref(null);
 
 gsap.set(span1.value, { y: 0 });
-
-const hovered1 = () => {
-  const tl = gsap.timeline();
-
-  tl.to(span1.value, {
-    y: '-100%',
-    duration: 0.3,
-  });
-
-  tl.to(
-    span2.value,
-    {
-      y: '0%',
-      duration: 0.3,
-    },
-    '0'
-  );
-};
-
-const leave1 = () => {
-  const tl = gsap.timeline();
-
-  tl.to(span1.value, {
-    y: '0%',
-    duration: 0.3,
-  });
-
-  tl.to(
-    span2.value,
-    {
-      y: '100%',
-      duration: 0.3,
-    },
-    '0'
-  );
-};
+gsap.set(span2.value, { y: '100%' });
 
 const span3 = ref(null);
 const span4 = ref(null);

@@ -4,6 +4,7 @@
       <Nav/>
       <Hero/>
       <Features/>
+      <Project/>
     </div>
  </ClientOnly>
 </template>
