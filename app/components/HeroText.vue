@@ -40,6 +40,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-  .hero-text { font-size: clamp(3rem, 6vw, 5rem); }
+  .hero-text { font-size: clamp(2.5rem, 6vw, 5rem); }
   .char { will-change: transform, opacity; }
 </style>
