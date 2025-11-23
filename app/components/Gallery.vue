@@ -3,7 +3,7 @@
     <div class="masonry-item"><img src="/images/gallery/image 5.png" alt="" /></div>
     <div class="masonry-item"><img src="/images/gallery/image 13.png" alt="" /></div>
     <div class="masonry-item"><img src="/images/gallery/image 12.png" alt="" /></div>
-    <div class="masonry-item"><img src="/images/gallery/frame 31.png" alt="" /></div>
+    <div class="masonry-item"><img src="/images/gallery/Frame 31.png" alt="" /></div>
     <div class="masonry-item"><img src="/images/gallery/image 4.png" alt="" /></div>
     <div class="masonry-item"><img src="/images/gallery/image 1.png" alt="" /></div>
     <div class="masonry-item"><img src="/images/gallery/image 2.png" alt="" /></div>

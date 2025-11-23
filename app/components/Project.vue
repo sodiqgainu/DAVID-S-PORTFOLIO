@@ -1,12 +1,12 @@
 <template>
-    <section class="py-[4rem] relative md:pt-[0rem] pt-[6rem] bg-black" id="projects" data-cursor="-exclusion">
+    <section class="py-[4rem] relative md:pt-[10rem] pt-[6rem] bg-black" id="projects" data-cursor="-exclusion">
        <div class="max-w-[1200px] w-[90%] mx-auto flex flex-col items-center gap-4 relative z-10">
           <div class="text-center space-y-5"> 
                <h2 class="font-han text-white project-heading">Project gallery</h2>
                <p class="text-white font-robo-reg">A visual journey through digital landscapes I've crafted</p>
           </div>
 
-          <div class="gallery-wrap w-full  relative">
+          <div class="gallery-wrap w-full lg:top-[-5rem] sm:top-[-1rem]  relative">
             <Gallery/>
           </div>
         
