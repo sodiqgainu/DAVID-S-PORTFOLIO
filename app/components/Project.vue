@@ -66,6 +66,6 @@ import Gallery from './Gallery.vue';
 
 
 @media (min-width: 1024px) {
-  .project-word { font-size: clamp(4rem, 20vw, 12rem); white-space: nowrap; }
+  .project-word { font-size: clamp(4rem, 19vw, 12rem); white-space: nowrap; }
 }
 </style>
