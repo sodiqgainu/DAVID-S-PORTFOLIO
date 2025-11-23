@@ -5,6 +5,7 @@
       <Hero/>
       <Features/>
       <Project/>
+      <Testimonials/>
     </div>
  </ClientOnly>
 </template>
