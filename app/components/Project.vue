@@ -3,7 +3,7 @@
        <div class="max-w-[1200px] w-[90%] mx-auto flex flex-col items-center gap-4 relative z-10">
           <div class="text-center space-y-5"> 
                <h2 class="font-han text-white project-heading">Project gallery</h2>
-               <p class="text-white font-robo-reg">A visual journey through digital landscapes I've crafted</p>
+               <p class="text-white font-robo-reg md:my-8 my-auto">A visual journey through digital landscapes I've crafted</p>
           </div>
 
           <div class="gallery-wrap w-full lg:top-[-5rem] sm:top-[-1rem]  relative">
