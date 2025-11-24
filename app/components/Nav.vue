@@ -41,6 +41,15 @@
           <span class="block absolute" ref="span7">Projects</span>
           <span class="block translate-y-[100%]" ref="span8">Projects</span>
         </button>
+        <button
+          @click.stop="scrollTo('contact')"
+          class="overflow-hidden relative"
+          @mouseleave="leave5"
+          @mouseover="hovered5"
+        >
+          <span class="block absolute" ref="span9">Contact me</span>
+          <span class="block translate-y-[100%]" ref="span10">Contact me</span>
+        </button>
       </div>
     </div>
 
@@ -93,6 +102,12 @@
           class="block w-full text-left hover:bg-black px-3 shadow-md hover:text-white transition-colors duration-200 py-3 border-l-4 border-black rounded-xl"
         >
           Projects
+        </button>
+        <button
+          @click="scrollTo('contact')"
+          class="block w-full text-left hover:bg-black px-3 shadow-md hover:text-white transition-colors duration-200 py-3 border-l-4 border-black rounded-xl"
+        >
+          Contact me
         </button>
       </div>
 
@@ -271,6 +286,47 @@ const leave4 = () => {
 
   tl.to(
     span8.value,
+    {
+      y: '100%',
+      duration: 0.3,
+    },
+    '0'
+  );
+};
+
+const span9 = ref(null);
+const span10 = ref(null);
+
+if (span9.value) gsap.set(span9.value, { y: 0 });
+
+const hovered5 = () => {
+  const tl = gsap.timeline();
+
+  tl.to(span9.value, {
+    y: '-100%',
+    duration: 0.3,
+  });
+
+  tl.to(
+    span10.value,
+    {
+      y: '0%',
+      duration: 0.3,
+    },
+    '0'
+  );
+};
+
+const leave5 = () => {
+  const tl = gsap.timeline();
+
+  tl.to(span9.value, {
+    y: '0%',
+    duration: 0.3,
+  });
+
+  tl.to(
+    span10.value,
     {
       y: '100%',
       duration: 0.3,

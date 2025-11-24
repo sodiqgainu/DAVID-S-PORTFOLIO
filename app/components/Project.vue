@@ -50,9 +50,9 @@ h
 
   resizeObserver = new ResizeObserver(() => {
     resizeText()
-  })
+  }).observe(parent)
 
-  resizeObserver.observe(parent)
+
 
   // Run once immediately
   resizeText()

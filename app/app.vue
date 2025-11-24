@@ -6,6 +6,8 @@
       <Features/>
       <Project/>
       <Testimonials/>
+      <Schedule/>
+      <Footer/>
     </div>
  </ClientOnly>
 </template>
