@@ -12,15 +12,10 @@
     <div
       class="max-w-[1200px] w-[90%] mx-auto pb-[2.5rem] relative overflow-hidden"
     >
-      <div
-        class="slider-track"
-        :style="trackStyle"
-        ref="track"
-        @transitionend="onTransitionEnd"
-      >
+      <div class="slider-track" :style="trackStyle">
         <div
-          v-for="(t,i) in slides"
-          :key="'slide-' + i + '-' + t.id"
+          v-for="(t,i) in testimonials"
+          :key="'slide-' + t.id"
           class="slide-item"
         >
           <div class="flex items-center space-x-1 mb-4">
@@ -70,7 +65,7 @@
       </div>
 
       <div class="flex items-center justify-between mt-8 sm:mt-10">
-        <button @click="next" class="nav-btn px-4 py-2 border rounded-full">Prev</button>
+        <button @click="prev" class="nav-btn px-4 py-2 border rounded-full">Prev</button>
 
         <div class="flex space-x-2">
           <button
@@ -129,46 +124,33 @@ const testimonials = ref([
 ]);
 
 const current = ref(0);
-const interval = ref(null);
-const transitioning = ref(true);
-
-// duplicate first slide at end
-const slides = computed(() => [...testimonials.value, testimonials.value[0]]);
+let interval = null;
 
 const trackStyle = computed(() => ({
   transform: `translateX(-${current.value * 100}%)`,
-  transition: transitioning.value
-    ? "transform 0.75s cubic-bezier(0.76,0,0.24,1)"
-    : "none",
+  transition: "transform 0.6s cubic-bezier(0.76,0,0.24,1)",
 }));
 
-// smooth autoplay
 const next = () => {
-  current.value++;
+  current.value = (current.value + 1) % testimonials.value.length;
 };
 
-// restart from start when hitting duplicate
-const onTransitionEnd = () => {
-  if (current.value === slides.value.length - 1) {
-    transitioning.value = false;
-    current.value = 0;
-    requestAnimationFrame(() => {
-      transitioning.value = true;
-    });
-  }
+const prev = () => {
+  current.value = (current.value - 1 + testimonials.value.length) % testimonials.value.length;
 };
 
-const go = (i) => (current.value = i);
+const go = (i) => {
+  current.value = i;
+};
 
-// dot logic always stays correct
-const dotIndex = computed(() => current.value % testimonials.value.length);
+const dotIndex = computed(() => current.value);
 
 const startAuto = () => {
-  interval.value = setInterval(next, 5000);
+  interval = setInterval(() => next(), 5000);
 };
 
 onMounted(startAuto);
-onUnmounted(() => clearInterval(interval.value));
+onUnmounted(() => interval && clearInterval(interval));
 </script>
 
 
