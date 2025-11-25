@@ -19,11 +19,11 @@
       </div>
 
       <div class="flex space-x-3">
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="group">
-          <img src="/images/icons/twitter.png" alt="">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="inline-block cursor-pointer">
+          <img src="/images/icons/twitter.png" alt="Twitter">
         </a>
-        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="group">
-          <img src="/images/icons/insta.png" alt="">
+        <a href="https://www.instagram.com/david_krispy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="inline-block cursor-pointer">
+          <img src="/images/icons/insta.png" alt="Instagram">
         </a>
       </div>
      
@@ -42,7 +42,8 @@
         </p>
         <p class="text-sm md:text-base leading-relaxed">
           Open to freelance, product collaborations & technical consulting. Say hello:
-          <a href="mailto:david@example.com" class="underline underline-offset-4 hover:no-underline transition">david@example.com</a>
+          <a href="mailto:dravonbrand@gmail.com" class="underline underline-offset-4 transition">dravonbrand@gmail.com</a>
+          <span class="block mt-2">Or chat me up on WhatsApp: <span class="font-bold">+2349164744446</span></span>
         </p>
         <div class="flex flex-wrap justify-center gap-3 text-[11px] md:text-xs tracking-wide uppercase">
           <span class="px-3 py-1 bg-black text-white rounded-full">UI / UX</span>
@@ -121,7 +122,7 @@ onMounted(async () => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: footerRoot.value,
-      start: 'top 85%',
+      start: 'top 70%',
       once: true
     }
   })

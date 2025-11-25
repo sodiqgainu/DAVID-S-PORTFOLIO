@@ -41,15 +41,7 @@
           <span class="block absolute" ref="span7">Projects</span>
           <span class="block translate-y-[100%]" ref="span8">Projects</span>
         </button>
-        <button
-          @click.stop="scrollTo('contact')"
-          class="overflow-hidden relative"
-          @mouseleave="leave5"
-          @mouseover="hovered5"
-        >
-          <span class="block absolute" ref="span9">Contact me</span>
-          <span class="block translate-y-[100%]" ref="span10">Contact me</span>
-        </button>
+      
       </div>
     </div>
 
@@ -103,12 +95,7 @@
         >
           Projects
         </button>
-        <button
-          @click="scrollTo('contact')"
-          class="block w-full text-left hover:bg-black px-3 shadow-md hover:text-white transition-colors duration-200 py-3 border-l-4 border-black rounded-xl"
-        >
-          Contact me
-        </button>
+      
       </div>
 
       <div class="my-6">
@@ -119,7 +106,8 @@
 
         <div class="flex flex-col my-5 space-y-4">
           <button class="border block p-3">Hire</button>
-          <button class="border block p-3 bg-dark text-light">Contact</button>
+          <button class="border block p-3 bg-dark text-light"     @click="scrollTo('contact')">Contact</button>
+          
         </div>
       </div>
     </div>
@@ -130,7 +118,7 @@
     <div class="space-x-6 md:flex hidden items-center">
         <AnimButton  :text="'Hire me'" :overlayCol="'bg-black'" :textColor="'white'" :prevTextColor="'black'" class="inline-block"/>
         <Magnetic :strength="20">
-          <Button class="border px-6 py-2 bg-dark font-robo-reg text-light hidden md:inline-block">
+          <Button  @click.stop="scrollTo('contact')" class="border px-6 py-2 bg-dark font-robo-reg text-light hidden md:inline-block">
             Contact
           </Button>
         </Magnetic>
